@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="DepartmentListPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DepartmentVO1" RangeSize="25" DataControl="TransactionManagementAMDataControl"
+              id="DepartmentVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DepartmentVO1Iterator" id="DepartmentVO1">
+      <nodeDefinition DefName="model.vo.DepartmentVO" Name="DepartmentVO10">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

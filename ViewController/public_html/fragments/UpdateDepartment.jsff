@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelStretchLayout id="psl1">
+        <f:facet name="start"/>
+        <f:facet name="end"/>
+        <f:facet name="top">
+            <af:toolbar id="t1">
+                <af:button text="Back" id="b1" action="back"/>
+                <af:button text="Commit" id="b2" actionListener="#{bindings.Commit.execute}"/>
+            </af:toolbar>
+        </f:facet>
+        <f:facet name="bottom"/>
+        <f:facet name="center">
+            <af:panelFormLayout id="pfl1">
+                <af:inputText value="#{bindings.DepartmentId.inputValue}" label="#{bindings.DepartmentId.hints.label}"
+                              required="#{bindings.DepartmentId.hints.mandatory}"
+                              columns="#{bindings.DepartmentId.hints.displayWidth}"
+                              maximumLength="#{bindings.DepartmentId.hints.precision}"
+                              shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it1" autoSubmit="true">
+                    <f:validator binding="#{bindings.DepartmentId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DepartmentName.inputValue}"
+                              label="#{bindings.DepartmentName.hints.label}"
+                              required="#{bindings.DepartmentName.hints.mandatory}"
+                              columns="#{bindings.DepartmentName.hints.displayWidth}"
+                              maximumLength="#{bindings.DepartmentName.hints.precision}"
+                              shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it2" autoSubmit="true">
+                    <f:validator binding="#{bindings.DepartmentName.validator}"/>
+                </af:inputText>
+            </af:panelFormLayout>
+        </f:facet>
+    </af:panelStretchLayout>
+</ui:composition>

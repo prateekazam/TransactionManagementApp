@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelStretchLayout id="psl1">
+        <f:facet name="start"/>
+        <f:facet name="end"/>
+        <f:facet name="top">
+            <af:toolbar id="t1">
+                <af:button text="Update" id="b1" action="update"/>
+            </af:toolbar>
+        </f:facet>
+        <f:facet name="bottom"/>
+        <f:facet name="center">
+            <af:table value="#{bindings.DepartmentVO1.collectionModel}" var="row"
+                      rows="#{bindings.DepartmentVO1.rangeSize}"
+                      emptyText="#{bindings.DepartmentVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.DepartmentVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.DepartmentVO1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.DepartmentVO1.rangeSize}" id="t2">
+                <af:column headerText="#{bindings.DepartmentVO1.hints.DepartmentId.label}" id="c1">
+                    <af:inputText value="#{row.bindings.DepartmentId.inputValue}" readOnly="true"
+                                  label="#{bindings.DepartmentVO1.hints.DepartmentId.label}"
+                                  required="#{bindings.DepartmentVO1.hints.DepartmentId.mandatory}"
+                                  columns="#{bindings.DepartmentVO1.hints.DepartmentId.displayWidth}"
+                                  maximumLength="#{bindings.DepartmentVO1.hints.DepartmentId.precision}"
+                                  shortDesc="#{bindings.DepartmentVO1.hints.DepartmentId.tooltip}" id="it1">
+                        <f:validator binding="#{row.bindings.DepartmentId.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DepartmentVO1.hints.DepartmentId.format}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DepartmentVO1.hints.DepartmentName.label}" id="c2">
+                    <af:inputText value="#{row.bindings.DepartmentName.inputValue}" readOnly="true"
+                                  label="#{bindings.DepartmentVO1.hints.DepartmentName.label}"
+                                  required="#{bindings.DepartmentVO1.hints.DepartmentName.mandatory}"
+                                  columns="#{bindings.DepartmentVO1.hints.DepartmentName.displayWidth}"
+                                  maximumLength="#{bindings.DepartmentVO1.hints.DepartmentName.precision}"
+                                  shortDesc="#{bindings.DepartmentVO1.hints.DepartmentName.tooltip}" id="it2">
+                        <f:validator binding="#{row.bindings.DepartmentName.validator}"/>
+                    </af:inputText>
+                </af:column>
+            </af:table>
+        </f:facet>
+    </af:panelStretchLayout>
+</ui:composition>

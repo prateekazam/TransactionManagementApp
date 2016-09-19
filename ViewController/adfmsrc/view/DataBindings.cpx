@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.0.31" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/home.jsf" usageId="view_homePageDef"/>
+    <page path="/fragments/DepartmentList.jsff" usageId="view_DepartmentListPageDef"/>
+    <page path="/fragments/UpdateDepartment.jsff" usageId="view_UpdateDepartmentPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_homePageDef" path="view.pageDefs.homePageDef"/>
+    <page id="view_DepartmentListPageDef" path="fragments.DepartmentListPageDef"/>
+    <page id="view_UpdateDepartmentPageDef" path="fragments.UpdateDepartmentPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="TransactionManagementAMDataControl" Package="model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="TransactionManagementAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>
